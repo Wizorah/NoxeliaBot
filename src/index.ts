@@ -8,7 +8,8 @@ dotenv.config();
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers, // Requis pour gérer les événements d'ajout de membres
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildPresences // Requis pour gérer les événements d'ajout de membres
     ],
 });
 
@@ -32,9 +33,8 @@ client.once('ready', () => {
 });
 
 // Chargement dynamique des événements
-import('./events/guildMemberAdd').then((event) => {
-    event.default(client); // Appel de l'export par défaut
-});
+import('./events/guildMemberAdd').then(event => event.default(client));
+import('./events/presenceUpdate').then(event => event.default(client));
 
 // Gestion des interactions utilisateur
 client.on('interactionCreate', async (interaction) => {
@@ -80,6 +80,41 @@ client.on('interactionCreate', async (interaction) => {
             }
             case 'recrutement': {
                 const { execute } = await import('./commands/recrutement');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'soutien': {
+                const { execute } = await import('./commands/soutien');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'boutique': {
+                const { execute } = await import('./commands/boutique');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'ban': {
+                const { execute } = await import('./commands/ban');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'unban': {
+                const { execute } = await import('./commands/unban');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'mute': {
+                const { execute } = await import('./commands/mute');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'unmute': {
+                const { execute } = await import('./commands/unmute');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'clear': {
+                const { execute } = await import('./commands/clear');
                 await execute(commandInteraction);
                 break;
             }

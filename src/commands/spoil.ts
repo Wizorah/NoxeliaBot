@@ -5,30 +5,30 @@ export const data = new SlashCommandBuilder()
     .setDescription("Affiche un aperçu du Lobby Enchanté de Wizorah.");
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-    const message = `# :sparkles: Découvrez l'INCROYABLE monde de Wizorah ! :sparkles:
+    const message = `# <:wizo:1324796654557204515> Découvrez l'INCROYABLE monde de Wizorah !
 :wave: Salut, aventurier ! Moi, c’est **Noxélia**, la gardienne de ce royaume enchanté. Aujourd’hui, je te fais découvrir un peu du **monde magique de Wizorah** :
 
-## :deciduous_tree: Les 6 bois différents :
-**Ébène Spectral :** Avec ses nuances violettes et blanches, ce bois semble hanté, comme si un spectre invoqué par un dangereux Sorcier l’habitait.
-**Pin Draconique :** Teinté de rouge orangé, il évoque les flammes d’un dragon, d’où il tire son nom impressionnant.
-**Hêtre Maudit :** D’une couleur verte singulière, la légende raconte qu’il a été frappé par une malédiction de Zoltar, ce qui rendrait son bois empoisonné.
-**Bouleau Arcanique :** Avec son écorce brune et blanche, cet arbre majestueux inspire le respect et la fascination des bâtisseurs.
-**Cèdre du Crépuscule :** Haut et imposant, ses tons violets profonds lui confèrent une aura inquiétante, comme un gardien des ombres.
-**Érable de l’Abysse :** Arborant une teinte bleue saisissante, il semble émerger directement des abysses océaniques mystérieux de Wizorah.
+## :crossed_swords: Les outils en **Draknite** (le meilleur et le plus rare minerais du monde de Wizorah) :
 
-:european_castle: Que tu sois un stratège ou un guerrier, ton aventure commence ici. Choisis ton destin et prépare-toi à écrire l’histoire de **Wizorah**.
+- Épée en **Draknite**
+- Pioche en **Draknite**
+- Hache en **Draknite**
+- Pelle en **Draknite**
 
-:star2: **Reste connecté, car ce n’est que le début !** :star2:
+## Mais aussi :
 
-L’aventure n’attend plus que toi ! :herb:`;
+- Les mystérieux **GRIMOIRES** magiques de Wizorah ils ont une puissance que nul ne connaît pour le moment, nos **nains chercheurs** sont sur le coup pour le prochain spoil... :eyes:
+
+<:noxelia:1324796818202300446> Que tu sois un stratège ou un guerrier, ton aventure commence ici. Choisis ton destin et prépare-toi à écrire l’histoire de **Wizorah**.
+
+<a:soon:1324796759737634826> **Reste connecté, car ce n’est que le début !**
+
+L’aventure n’attend plus que toi ! <a:mc:1324796716985221262>`;
 
     // Créer une liste de pièces jointes pour les images
     const images = [
-        'https://i.ibb.co/K2CzXn6/spoil1.png',
-        'https://i.ibb.co/FzWVs13/spoil2.png',
-        'https://i.ibb.co/4mjPDPs/spoil3.png',
-        'https://i.ibb.co/2k8G6vG/spoil5.png',
-        'https://i.ibb.co/xXyjzJ9/spoil4.png'
+        'https://media.discordapp.net/attachments/1315983540348780554/1324792961703084062/SPOIL_4.png?ex=67797117&is=67781f97&hm=2c303ee2e7580d970378666b4615a58cfbeed869480f3e62777c02feed7b3013&=&format=webp&quality=lossless&width=1440&height=716',
+        'https://cdn.discordapp.com/attachments/1315983540348780554/1324794622664376421/grimoires.png?ex=677972a3&is=67782123&hm=844d70cefc91a69b6675c6df2a716635178ed106c0b4a4b63841bbfd97f81804&'
     ];
 
     const attachments = images.map((url, index) => new AttachmentBuilder(url, { name: `spoil${index + 1}.png` }));

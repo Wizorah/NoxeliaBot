@@ -26,8 +26,6 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
     // Construire l'embed
     const embed = new EmbedBuilder()
         .setDescription(texte)
-        .setThumbnail("https://i.ibb.co/frjFbVW/icon-no-fond.png")
-        .setImage("https://i.ibb.co/z46TzY2/wizorah-end.png")
         .setFooter({
             text: `©️ 2025 - Wizorah • ${new Date().toLocaleString("fr-FR", {
                 day: "2-digit",
