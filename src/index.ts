@@ -1,6 +1,7 @@
 // Importations nécessaires
 import { Client, GatewayIntentBits, ChatInputCommandInteraction, ActivityType } from "discord.js";
 import dotenv from "dotenv";
+import handleInteraction from './events/ticket-interaction';
 
 dotenv.config();
 
@@ -35,6 +36,14 @@ client.once('ready', () => {
 // Chargement dynamique des événements
 import('./events/guildMemberAdd').then(event => event.default(client));
 import('./events/presenceUpdate').then(event => event.default(client));
+
+client.on('interactionCreate', async (interaction) => {
+    try {
+        await handleInteraction(interaction);
+    } catch (error) {
+        console.error('Erreur lors de la gestion de l\'interaction :', error);
+    }
+});
 
 // Gestion des interactions utilisateur
 client.on('interactionCreate', async (interaction) => {
@@ -115,6 +124,26 @@ client.on('interactionCreate', async (interaction) => {
             }
             case 'clear': {
                 const { execute } = await import('./commands/clear');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'liens': {
+                const { execute } = await import('./commands/liens');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'banlist': {
+                const { execute } = await import('./commands/banlist');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'tset': {
+                const { execute } = await import('./commands/tset');
+                await execute(commandInteraction);
+                break;
+            }
+            case 'tclose': {
+                const { execute } = await import('./commands/tclose');
                 await execute(commandInteraction);
                 break;
             }
