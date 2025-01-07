@@ -5,7 +5,8 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
   "include": [
     "src/**/*.ts"
